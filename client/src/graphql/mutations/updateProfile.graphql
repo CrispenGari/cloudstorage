@@ -1,0 +1,14 @@
+mutation UpdateProfile(
+  $input: UpdateInput!
+  $avatar: Upload
+  $banner: Upload
+  $size: Int!
+) {
+  updateProfile(input: $input, banner: $banner, avatar: $avatar, size: $size) {
+    success
+    error {
+      field
+      message
+    }
+  }
+}

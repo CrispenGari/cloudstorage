@@ -1,0 +1,70 @@
+.user__info {
+  width: 100%;
+  background-color: white;
+  user-select: none;
+  user-zoom: none;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  user-select: none;
+  user-zoom: none;
+  position: relative;
+}
+.user__info__loading {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+.user__info__main__top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 0 0;
+}
+.user__info__main__top > h1 {
+  font-size: 1rem;
+}
+.user__info__main__top > h1 > span {
+  color: gray;
+  font-weight: 400 !important;
+}
+.user__info__main__top > p {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.user__info__main__top > p:last-child {
+  color: cornflowerblue;
+}
+.user__info__main__bottom {
+  display: flex;
+  padding-right: 10px;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+  border-bottom: 1px solid cornflowerblue;
+}
+
+.user__info__main__bottom > button {
+  width: 100px;
+  transition: all 1s;
+  border: 1px solid cornflowerblue;
+  background-color: transparent;
+  border-radius: 5px;
+  color: cornflowerblue !important;
+}
+.user__info__main__bottom > button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, cornflowerblue, black);
+  color: white !important;
+}

@@ -1,0 +1,135 @@
+.files {
+  flex: 1;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.files__header {
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 5px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.files__header > p {
+  color: gray;
+  font-size: 0.8rem;
+  user-select: none;
+  user-zoom: none;
+}
+.files__header > button {
+  outline: none;
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+  width: fit-content;
+  padding: 3px 10px;
+  transition: all 1s;
+  background-color: transparent;
+  border-radius: 5px;
+  user-select: none;
+  user-zoom: none;
+}
+.files__header > button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+.files__drag__drop {
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  width: 100%;
+  user-select: none;
+}
+.files__file__uploader {
+  background-color: white;
+  max-height: 50vh;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 700px;
+  background-color: white;
+  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.files__buttons {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid lightgray;
+  user-select: none;
+  user-zoom: none;
+}
+
+.files__buttons > div > button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.files__buttons > div > button {
+  outline: none;
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+  width: 100px;
+  padding: 3px 10px;
+  transition: all 1s;
+  background-color: transparent;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.files__buttons > p {
+  text-align: center;
+  user-select: none;
+  font-size: 0.8rem;
+  color: gray;
+}
+.files__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.files__file__selector {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed var(--main-color);
+  cursor: pointer;
+}
+.files__file__selector > div {
+  color: var(--main-color);
+}
+
+.files__header__controls {
+  display: flex;
+  align-items: center;
+}
+.files__header__controls > button {
+  /* padding: 3px !important; */
+  margin: 10px !important;
+  color: var(--main-color) !important;
+}
+
+.files__header__controls__checkbox {
+  /* padding: 3px !important; */
+  margin: 5px !important;
+  color: var(--main-color) !important;
+}
+.files__header__controls__select {
+  display: flex;
+  align-items: center;
+}
+.files__header__controls__select > p {
+  color: gray;
+  font-size: 0.8rem;
+}

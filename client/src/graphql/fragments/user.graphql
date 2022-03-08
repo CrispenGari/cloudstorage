@@ -1,0 +1,12 @@
+fragment UserFragment on User {
+  uid
+  username
+  email
+  isLoggedIn
+  confirmed
+  maxStorageSize
+  usedStorage
+  profile {
+    ...ProfileFragment
+  }
+}

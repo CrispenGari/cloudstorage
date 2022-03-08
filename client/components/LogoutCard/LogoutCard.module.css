@@ -1,0 +1,38 @@
+.logout__card {
+  width: 100%;
+  background-color: white;
+  user-select: none;
+  user-zoom: none;
+  max-width: 600px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid lightgray;
+  padding: 10px;
+}
+.logout__card > h1 {
+  font-size: 1rem;
+}
+.logout__card > p {
+  color: gray;
+  font-size: 0.8rem;
+}
+.logout__card > button {
+  width: 100px;
+  margin: 10px 0;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  padding: 5px;
+  background: transparent;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: all 1s;
+}
+.logout__card > button:hover {
+  color: white;
+  background-image: linear-gradient(to right, var(--main-color), white);
+}

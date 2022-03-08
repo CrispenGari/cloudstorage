@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Trirong);
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  --main-color: #59a6fe;
+  --active-color: #fecb28;
+  --icon-hover-color: #172a4c;
+  --hover-color: rgba(89, 166, 254, 0.5);
+  --solid-hover-color: rgba(89, 166, 254, 1);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Trirong", serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  /* Mobile devices. */
+}
+@media only screen and (max-width: 768px) {
+  /* iPads, Tablets */
+}
+@media only screen and (max-width: 1024px) {
+  /* Small screens, laptops */
+}
+@media only screen and (max-width: 1200px) {
+  /*Desktops, large screens. */
+}
+@media only screen and (max-width: 1201px) {
+  /* Extra large screens, TV.. */
+}
+
+/* 
+320px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+1025px — 1200px: Desktops, large screens.
+1201px and more — Extra large screens, TV. */

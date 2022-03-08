@@ -1,0 +1,13 @@
+fragment ProfileFragment on Profile {
+  id
+  avatar
+  banner
+  admin
+  username
+  email
+  phoneNumber
+  createdAt
+  updatedAt
+  bannerSize
+  avatarSize
+}

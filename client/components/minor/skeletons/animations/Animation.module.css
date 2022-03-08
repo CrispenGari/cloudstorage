@@ -1,0 +1,30 @@
+.animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  top: 0;
+  right: 0;
+  animation: my-animation 2.1s linear 0s infinite;
+}
+.animation__magic {
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 100%;
+  transform: skewX(-20deg);
+  box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
+}
+.darktheme .animation__magic {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+@keyframes my-animation {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}

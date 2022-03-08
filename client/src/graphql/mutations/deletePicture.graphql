@@ -1,0 +1,3 @@
+mutation DeletePicture($id: String!, $type: String!) {
+  deletePicture(id: $id, type: $type)
+}

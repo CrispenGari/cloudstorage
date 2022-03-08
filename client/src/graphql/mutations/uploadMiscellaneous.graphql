@@ -1,0 +1,9 @@
+mutation UploadMiscellaneous($miscellaneous: Upload!, $size: Int!) {
+  uploadMiscellaneous(miscellaneous: $miscellaneous, size: $size) {
+    success
+    error {
+      message
+      field
+    }
+  }
+}

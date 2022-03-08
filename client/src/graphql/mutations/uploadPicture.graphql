@@ -1,0 +1,9 @@
+mutation UploadPictures($picture: Upload!, $size: Int!) {
+  uploadPicture(picture: $picture, size: $size) {
+    success
+    error {
+      message
+      field
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mutation UploadVideo($video: Upload!, $size: Int!) {
+  uploadVideo(video: $video, size: $size) {
+    success
+    error {
+      message
+      field
+    }
+  }
+}

@@ -1,0 +1,50 @@
+fragment MusicFragment on Music {
+  id
+  url
+  filename
+  size
+  createdAt
+  updatedAt
+}
+fragment PictureFragment on Picture {
+  id
+  url
+  filename
+  size
+  createdAt
+  updatedAt
+}
+fragment DocumentFragment on Document {
+  id
+  url
+  filename
+  size
+  createdAt
+  updatedAt
+}
+
+fragment VideoFragment on Video {
+  id
+  url
+  filename
+  size
+  createdAt
+  updatedAt
+}
+fragment MiscellaneousFragment on Miscellaneous {
+  id
+  url
+  filename
+  size
+  createdAt
+  updatedAt
+}
+fragment TrashFragment on Trash {
+  id
+  url
+  type
+  filename
+  size
+  createdAt
+  updatedAt
+}

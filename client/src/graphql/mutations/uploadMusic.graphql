@@ -1,0 +1,9 @@
+mutation UploadMusic($music: Upload!, $size: Int!) {
+  uploadMusic(music: $music, size: $size) {
+    success
+    error {
+      message
+      field
+    }
+  }
+}

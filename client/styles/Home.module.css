@@ -1,0 +1,66 @@
+.app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app__main {
+  display: flex;
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.app__main::-webkit-scrollbar {
+  display: none !important;
+}
+.app__main__main {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.app__main__main::-webkit-scrollbar {
+  display: none;
+}
+.app__main__sidebar {
+  background-color: white;
+  width: 200px;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+.dark__theme {
+  background-color: black;
+}
+.light__theme {
+  background-color: #f5f5f5;
+}
+.app__main__sidebar__header,
+.app__main__main__header {
+  position: sticky;
+  top: 0;
+  border-bottom: 0.5px solid lightgray;
+}
+.app__main__main__items {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.app__main__sidebar__footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+}
+@media only screen and (max-width: 768px) {
+  /* iPads, Tablets */
+  .app__main__sidebar {
+    display: none;
+  }
+}

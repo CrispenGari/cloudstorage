@@ -1,0 +1,62 @@
+.not__found__page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  user-select: none;
+  user-zoom: none;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  background: radial-gradient(ellipse at top, var(--main-color), transparent),
+    radial-gradient(ellipse at bottom, var(--icon-hover-color), transparent);
+}
+.not__found__page > img {
+  width: 100px;
+  -webkit-user-drag: none;
+}
+.not__found__page__section {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0px;
+  justify-content: center;
+  align-items: center;
+}
+.not__found__page__section > h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 2px;
+}
+.not__found__page__section > p {
+  color: gray;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+.not__found__page__section:last-of-type > h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: unset;
+}
+.not__found__page__section > div > a {
+  margin: 5px !important;
+  color: var(--icon-hover-color);
+  text-decoration: underline;
+}
+.not__found__page__section > h1 > span {
+  color: var(--active-color);
+  position: relative;
+  top: -50px;
+  animation: bounce 1s ease 0s infinite alternate-reverse forwards;
+}
+
+@keyframes bounce {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 0px;
+  }
+}

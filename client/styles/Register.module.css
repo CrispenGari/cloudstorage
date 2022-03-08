@@ -1,0 +1,104 @@
+.register__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  user-select: none;
+  user-zoom: none;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: radial-gradient(ellipse at top, var(--main-color), transparent),
+    radial-gradient(ellipse at bottom, var(--icon-hover-color), transparent);
+}
+.register__container::-webkit-scrollbar {
+  display: none !important;
+}
+.register__container > img {
+  -webkit-user-drag: none;
+  user-zoom: none;
+  width: 100px;
+  margin-bottom: 20px;
+}
+.register {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+  background-color: var(--solid-hover-color);
+  padding: 10px;
+  max-width: 500px !important;
+}
+.register h1 {
+  font-weight: 500;
+  font-size: 1.01rem;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+.register > button {
+  width: 60%;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  background: transparent;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  transition: all 1s;
+  color: white;
+}
+.register__bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid lightgray;
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.register__bottom > button {
+  width: 60%;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 5px;
+  background: var(--main-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin: 10px auto;
+  color: white;
+  display: flex;
+  justify-content: center;
+  transition: all 1s;
+}
+
+.register > button:hover {
+  background: cornflowerblue;
+  color: white;
+}
+
+.register__bottom > button:hover {
+  border: 1px solid cornflowerblue;
+  background: white;
+  color: #333 !important;
+}
+
+@media only screen and (max-width: 769px) {
+  .register {
+    border: none;
+    box-shadow: unset;
+    background-color: transparent;
+  }
+  .register__container {
+    background-color: white;
+  }
+}

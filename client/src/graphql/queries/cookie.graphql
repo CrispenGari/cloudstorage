@@ -1,0 +1,3 @@
+query Cookie($cookie: String!) {
+  cookie(cookie: $cookie)
+}

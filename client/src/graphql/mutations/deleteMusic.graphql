@@ -1,0 +1,3 @@
+mutation DeleteMusic($id: String!, $type: String!) {
+  deleteMusic(id: $id, type: $type)
+}

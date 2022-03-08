@@ -1,0 +1,113 @@
+.more__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-top: 20px !important;
+}
+.more__container::-webkit-scrollbar {
+  display: none !important;
+}
+.more__container > img {
+  -webkit-user-drag: none;
+  user-zoom: none;
+  width: 100px;
+  margin-bottom: 20px;
+  margin-top: 100px !important;
+  display: none;
+}
+
+.more__info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  animation: more__info-card-animation 1s ease-in-out 0s 1 alternate forwards;
+  position: relative;
+  bottom: -700px;
+  background-color: white;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 600px;
+  margin: 0px auto;
+  padding-top: 150px;
+}
+
+@keyframes more__info-card-animation {
+  from {
+    bottom: -700px;
+  }
+  to {
+    bottom: 0px;
+  }
+}
+.more__info__main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.more__info__main > h1 {
+  font-weight: 500;
+  font-size: 1.01rem;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+@media only screen and (max-width: 769px) {
+  .more__info {
+    border: none;
+    box-shadow: unset;
+  }
+  .more__container {
+    background-color: white;
+  }
+}
+.more__info__buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-top: 1px solid lightblue;
+  justify-content: center;
+}
+.more__info__buttons button {
+  width: 100px;
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+  margin: 0px 10px;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.more__info__buttons button:hover {
+  color: black;
+  background: white;
+  border: 1px solid cornflowerblue;
+}
+.more__info__buttons button:last-of-type {
+  background-color: white;
+  border: 1px solid cornflowerblue;
+  color: black;
+}
+.more__info__buttons button:last-of-type:hover {
+  background-color: cornflowerblue;
+  color: white;
+  border: 1px solid cornflowerblue;
+}

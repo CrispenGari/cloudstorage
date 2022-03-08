@@ -1,0 +1,65 @@
+.folder {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  transition: all 1s;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 1s ease;
+}
+.folder:hover {
+  transform: scale(1.09);
+}
+
+.folder__icon {
+  color: var(--active-color);
+  font-size: 3rem;
+}
+.folder:hover {
+  background-color: var(--hover-color);
+}
+.folder > h1 {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.folder:hover > h1 {
+  color: white;
+}
+.folder:hover > h1 {
+  color: white;
+}
+.folder:hover > .folder__icon {
+  color: var(--icon-hover-color);
+}
+
+.folder:last-of-type > .folder__icon {
+  color: var(--icon-hover-color);
+}
+.folder:last-of-type:hover > .folder__icon {
+  color: white;
+}
+@media only screen and (max-width: 480px) {
+  /* Mobile devices. */
+  .folder {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* iPads, Tablets */
+  .folder {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  /* Small screens, laptops */
+  .folder {
+    width: 100px;
+    height: 100px;
+  }
+}

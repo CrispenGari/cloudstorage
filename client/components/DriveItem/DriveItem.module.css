@@ -1,0 +1,40 @@
+.drive__item,
+.drive__item__active {
+  display: flex;
+  align-items: center;
+  padding: 7px 5px 7px 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 1s;
+}
+
+.drive__item > h1,
+.drive__item__active > h1 {
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.drive__item__icon {
+  color: var(--main-color);
+  margin-right: 5px;
+  font-size: 1.3rem;
+}
+.drive__item:hover {
+  background-color: rgba(89, 166, 254, 0.5);
+  color: white;
+}
+.drive__item:hover > h1 {
+  color: white;
+}
+.drive__item:hover > .drive__item__icon {
+  color: #172a4c;
+}
+.drive__item__active {
+  background-color: rgb(89, 166, 254);
+}
+.drive__item__active > .drive__item__icon {
+  color: #fecb28;
+}
+.drive__item__active > h1 {
+  color: white;
+}

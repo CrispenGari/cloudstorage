@@ -1,0 +1,9 @@
+mutation UploadDocument($document: Upload!, $size: Int!) {
+  uploadDocument(document: $document, size: $size) {
+    success
+    error {
+      message
+      field
+    }
+  }
+}

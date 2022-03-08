@@ -1,0 +1,11 @@
+mutation Confirm($verificationCode: String!, $token: String!) {
+  confirm(verificationCode: $verificationCode, token: $token) {
+    user {
+      ...UserFragment
+    }
+    error {
+      field
+      message
+    }
+  }
+}

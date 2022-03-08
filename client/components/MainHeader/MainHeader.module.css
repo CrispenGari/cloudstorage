@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 10px;
+  user-select: none;
+  justify-content: space-between;
+  background-color: white;
+  z-index: 100;
+}
+.header__left {
+  display: flex;
+  align-items: center;
+}
+.header__icon {
+  font-size: 1rem;
+  color: var(--active-color);
+}
+.header__left > h1 {
+  font-size: 1rem;
+  margin-left: 10px;
+  color: gray;
+}
+.header__left > h1 > span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.header__left > h1 > span:first-child {
+  color: #333;
+}
+.header__left > h1 > span:last-of-type {
+  color: var(--main-color);
+}
+.header__right > img {
+  user-select: none;
+  user-zoom: none;
+  -webkit-user-drag: none;
+  height: 30px;
+}

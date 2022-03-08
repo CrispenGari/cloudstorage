@@ -1,0 +1,3 @@
+mutation UpdateUserStorage($size: Float!) {
+  updateStorage(size: $size)
+}

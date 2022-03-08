@@ -1,0 +1,3 @@
+mutation DeleteMiscellaneous($id: String!, $type: String!) {
+  deleteMiscellaneous(id: $id, type: $type)
+}

@@ -1,0 +1,23 @@
+query User {
+  user {
+    ...UserFragment
+    musics {
+      ...MusicFragment
+    }
+    pictures {
+      ...PictureFragment
+    }
+    miscellaneous {
+      ...MiscellaneousFragment
+    }
+    videos {
+      ...VideoFragment
+    }
+    documents {
+      ...DocumentFragment
+    }
+    trash {
+      ...TrashFragment
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  user-select: none;
+  justify-content: flex-start;
+}
+.header__icon {
+  font-size: 1.8rem;
+  color: var(--main-color);
+  cursor: pointer;
+}
+.header > h1 {
+  font-size: 1.2rem;
+  margin-left: 10px;
+  color: #333;
+  cursor: pointer;
+}
+.header > h1:hover {
+  text-decoration: underline;
+}
