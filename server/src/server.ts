@@ -23,6 +23,7 @@ import { execute, subscribe } from "graphql";
 import { SubscriptionServer } from "subscriptions-transport-ws";
 import { Resolvers } from "./resolvers";
 import { graphqlUploadExpress } from "graphql-upload";
+import router from "./routes";
 (async () => {
   // Connecting to the database
   await createConnection();
@@ -70,6 +71,7 @@ import { graphqlUploadExpress } from "graphql-upload";
     })
   );
   app.use("/api/storage", express.static(path.join(__dirname, "../storage")));
+  app.use(router);
 
   // 25mb
   app.use(graphqlUploadExpress({ maxFileSize: 2.5e7, maxFiles: 10000 }));

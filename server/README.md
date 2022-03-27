@@ -36,3 +36,5 @@ http://localhost:3001/graphql
 ### Developers
 
 Developers are able to programmatically interact with cloud storage through the use of `API KEY` and `API SECRET` which can be generated with the authenticated user in the settings page.
+
+GET http://localhost:3001/developers/api?profile=true&trash=true&musics=true&documents=true&miscellaneous=true&videos=true&apiKey=ca3d3ff4-688b-4fb7-8dee-7da0b90fe6c0&apiSecretKey=70b782a5-eba3-47f5-b73c-438dcd99d8ee
