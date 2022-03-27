@@ -6,6 +6,8 @@ fragment UserFragment on User {
   confirmed
   maxStorageSize
   usedStorage
+  apiKey
+  apiSecretKey
   profile {
     ...ProfileFragment
   }

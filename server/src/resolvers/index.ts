@@ -17,6 +17,7 @@ import { ChangePasswordSetting } from "./user/ChangePassoword";
 import { ChangePasswordResolver } from "./user/ChangePasswordResolver";
 import { VerifyEmailResolver } from "./user/CorfirmEmail";
 import { DeleteAccount } from "./user/DeleteAccount";
+import { GenerateCredentialsResolver } from "./user/GenerateCredentialResolver";
 import { LoginResolver } from "./user/Login";
 import { LogoutResolver } from "./user/Logout";
 import { RegisterResolver } from "./user/Register";
@@ -54,4 +55,5 @@ export const Resolvers: NonEmptyArray<Function> | NonEmptyArray<string> = [
   DeleteFromTrashResolver,
   UnDeleteFromTrashResolver,
   UpdateStorageResolver,
+  GenerateCredentialsResolver,
 ];

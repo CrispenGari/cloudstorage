@@ -99,6 +99,12 @@ export type ForgotPasswordEmail = {
   success: Scalars['Boolean'];
 };
 
+export type GenerateCredentialsResponse = {
+  __typename?: 'GenerateCredentialsResponse';
+  error?: Maybe<Error>;
+  success: Scalars['Boolean'];
+};
+
 export type LoginInput = {
   password: Scalars['String'];
   usernameOrEmail: Scalars['String'];
@@ -143,6 +149,7 @@ export type Mutation = {
   deletePicture: Scalars['Boolean'];
   deleteVideo: Scalars['Boolean'];
   emptyTrash: Scalars['Boolean'];
+  generateCredentials: GenerateCredentialsResponse;
   login: LoginObjectType;
   logout: Scalars['Boolean'];
   register: RegisterObjectType;
@@ -387,6 +394,8 @@ export type UploadVideoResponse = {
 
 export type User = {
   __typename?: 'User';
+  apiKey?: Maybe<Scalars['String']>;
+  apiSecretKey?: Maybe<Scalars['String']>;
   confirmed: Scalars['Boolean'];
   createdAt: Scalars['String'];
   documents?: Maybe<Array<Document>>;
@@ -430,7 +439,7 @@ export type TrashFragmentFragment = { __typename?: 'Trash', id: string, url: str
 
 export type ProfileFragmentFragment = { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number };
 
-export type UserFragmentFragment = { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null };
+export type UserFragmentFragment = { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, apiKey?: string | null, apiSecretKey?: string | null, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null };
 
 export type ResetPasswordMutationVariables = Exact<{
   input: ChangePasswordInput;
@@ -505,12 +514,17 @@ export type EmptyTrashMutationVariables = Exact<{ [key: string]: never; }>;
 
 export type EmptyTrashMutation = { __typename?: 'Mutation', emptyTrash: boolean };
 
+export type GenerateCredentialsMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GenerateCredentialsMutation = { __typename?: 'Mutation', generateCredentials: { __typename?: 'GenerateCredentialsResponse', success: boolean, error?: { __typename?: 'Error', field: string, message: string } | null } };
+
 export type LoginMutationVariables = Exact<{
   input: LoginInput;
 }>;
 
 
-export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'LoginObjectType', user?: { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null } | null, error?: { __typename?: 'AuthError', field: string, message: string } | null } };
+export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'LoginObjectType', user?: { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, apiKey?: string | null, apiSecretKey?: string | null, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null } | null, error?: { __typename?: 'AuthError', field: string, message: string } | null } };
 
 export type LogoutMutationVariables = Exact<{ [key: string]: never; }>;
 
@@ -522,7 +536,7 @@ export type RegisterMutationVariables = Exact<{
 }>;
 
 
-export type RegisterMutation = { __typename?: 'Mutation', register: { __typename?: 'RegisterObjectType', error?: { __typename?: 'AuthError', field: string, message: string } | null, user?: { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null } | null } };
+export type RegisterMutation = { __typename?: 'Mutation', register: { __typename?: 'RegisterObjectType', error?: { __typename?: 'AuthError', field: string, message: string } | null, user?: { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, apiKey?: string | null, apiSecretKey?: string | null, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null } | null } };
 
 export type RequestForgotPasswordEmailMutationVariables = Exact<{
   email: Scalars['String'];
@@ -601,7 +615,7 @@ export type ConfirmMutationVariables = Exact<{
 }>;
 
 
-export type ConfirmMutation = { __typename?: 'Mutation', confirm: { __typename?: 'RegisterObjectType', user?: { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null } | null, error?: { __typename?: 'AuthError', field: string, message: string } | null } };
+export type ConfirmMutation = { __typename?: 'Mutation', confirm: { __typename?: 'RegisterObjectType', user?: { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, apiKey?: string | null, apiSecretKey?: string | null, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null } | null, error?: { __typename?: 'AuthError', field: string, message: string } | null } };
 
 export type CookieQueryVariables = Exact<{
   cookie: Scalars['String'];
@@ -618,7 +632,7 @@ export type HelloWorldQuery = { __typename?: 'Query', helloWorld: string };
 export type UserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UserQuery = { __typename?: 'Query', user?: { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, musics?: Array<{ __typename?: 'Music', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, pictures?: Array<{ __typename?: 'Picture', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, miscellaneous?: Array<{ __typename?: 'Miscellaneous', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, videos?: Array<{ __typename?: 'Video', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, documents?: Array<{ __typename?: 'Document', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, trash?: Array<{ __typename?: 'Trash', id: string, url: string, type: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null } | null };
+export type UserQuery = { __typename?: 'Query', user?: { __typename?: 'User', uid: string, username: string, email: string, isLoggedIn: boolean, confirmed: boolean, maxStorageSize: number, usedStorage: number, apiKey?: string | null, apiSecretKey?: string | null, musics?: Array<{ __typename?: 'Music', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, pictures?: Array<{ __typename?: 'Picture', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, miscellaneous?: Array<{ __typename?: 'Miscellaneous', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, videos?: Array<{ __typename?: 'Video', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, documents?: Array<{ __typename?: 'Document', id: string, url: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, trash?: Array<{ __typename?: 'Trash', id: string, url: string, type: string, filename: string, size: number, createdAt: string, updatedAt: string }> | null, profile?: { __typename?: 'Profile', id: string, avatar?: string | null, banner?: string | null, admin: boolean, username: string, email: string, phoneNumber?: string | null, createdAt: string, updatedAt: string, bannerSize: number, avatarSize: number } | null } | null };
 
 export const MusicFragmentFragmentDoc = gql`
     fragment MusicFragment on Music {
@@ -705,6 +719,8 @@ export const UserFragmentFragmentDoc = gql`
   confirmed
   maxStorageSize
   usedStorage
+  apiKey
+  apiSecretKey
   profile {
     ...ProfileFragment
   }
@@ -817,6 +833,21 @@ export const EmptyTrashDocument = gql`
 
 export function useEmptyTrashMutation() {
   return Urql.useMutation<EmptyTrashMutation, EmptyTrashMutationVariables>(EmptyTrashDocument);
+};
+export const GenerateCredentialsDocument = gql`
+    mutation GenerateCredentials {
+  generateCredentials {
+    error {
+      field
+      message
+    }
+    success
+  }
+}
+    `;
+
+export function useGenerateCredentialsMutation() {
+  return Urql.useMutation<GenerateCredentialsMutation, GenerateCredentialsMutationVariables>(GenerateCredentialsDocument);
 };
 export const LoginDocument = gql`
     mutation Login($input: LoginInput!) {

@@ -1,22 +1,46 @@
 import React from "react";
 import {
-  useDeleteAccountMutation,
-  useLogoutMutation,
+  useGenerateCredentialsMutation,
   useUserQuery,
 } from "../../src/generated/graphql";
 import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import styles from "./DeveloperCard.module.css";
+import { Alert } from "@material-ui/lab";
+
 const DeveloperCard = () => {
   const [apiKey, setApiKey] = React.useState("");
   const [apiSecret, setApiSecret] = React.useState("");
   const [error, setError] = React.useState("");
   const [showApiKey, setShowApiKey] = React.useState(false);
   const [showSecretKey, setShowSecretKey] = React.useState(false);
+  const [message, setMessage] = React.useState("");
+
+  const [{ data }, refetchUser] = useUserQuery({
+    requestPolicy: "network-only",
+  });
+
+  React.useEffect(() => {
+    let mounted: boolean = true;
+    if (mounted && data) {
+      setApiKey(data.user?.apiKey);
+      setApiSecret(data?.user?.apiSecretKey);
+    }
+    return () => {
+      mounted = false;
+    };
+  }, [data]);
+
+  const [{ fetching }, generateCredentials] = useGenerateCredentialsMutation();
 
   const apiKeyRef = React.useRef(null);
   const secreteKeyRef = React.useRef(null);
-
-  const generateDeveloperKeys = async () => {};
+  const generateDeveloperKeys = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await generateCredentials();
+    await refetchUser({
+      requestPolicy: "network-only",
+    });
+  };
 
   return (
     <form className={styles.developer__card} onSubmit={generateDeveloperKeys}>
@@ -26,7 +50,7 @@ const DeveloperCard = () => {
         interact with our <strong>Application Programming Interface</strong>{" "}
         (API) you need to generate the <strong>API KEY</strong> and{" "}
         <strong>API SECRET</strong> by clicking on the [GENERATE CREDENTIALS]
-        button.
+        button. To generate new KEYS you can click the [RE-GENERATE CREDENTIALS]
       </p>
       <div>
         <div>
@@ -70,10 +94,16 @@ const DeveloperCard = () => {
                   secreteKeyRef?.current?.setAttribute("type", "text");
                   document.execCommand("copy");
                   secreteKeyRef?.current?.setAttribute("type", "password");
-                  alert("Copied SECRETE KEY to clipboard.");
+                  setMessage("Copied SECRETE KEY to clipboard.");
+                  setTimeout(() => {
+                    setMessage("");
+                  }, 3000);
                 } else {
                   document.execCommand("copy");
-                  alert("Copied SECRETE KEY to clipboard.");
+                  setMessage("Copied SECRETE KEY to clipboard.");
+                  setTimeout(() => {
+                    setMessage("");
+                  }, 3000);
                 }
               }}
             >
@@ -123,10 +153,16 @@ const DeveloperCard = () => {
                   apiKeyRef?.current?.setAttribute("type", "text");
                   document.execCommand("copy");
                   apiKeyRef?.current?.setAttribute("type", "password");
-                  alert("Copied API KEY to clipboard.");
+                  setMessage("Copied API KEY to clipboard.");
+                  setTimeout(() => {
+                    setMessage("");
+                  }, 3000);
                 } else {
                   document.execCommand("copy");
-                  alert("Copied API KEY to clipboard.");
+                  setMessage("Copied API KEY to clipboard.");
+                  setTimeout(() => {
+                    setMessage("");
+                  }, 3000);
                 }
               }}
             >
@@ -135,6 +171,17 @@ const DeveloperCard = () => {
           </div>
         </div>
       </div>
+      {message && (
+        <Alert
+          severity="success"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          {message}
+        </Alert>
+      )}
       <p>{error}</p>
       <p>
         Keep these credentials secret, if you are a developer we recommend you
@@ -142,7 +189,9 @@ const DeveloperCard = () => {
         credentials will be able to interact with your{" "}
         <strong>cloudstorage</strong> account on your behalf.
       </p>
-      <button type="submit">GENERATE CREDENTIALS</button>
+      <button type="submit" disabled={fetching}>
+        {apiKey ? "RE-GENERATE CREDENTIALS" : "GENERATE CREDENTIALS"}
+      </button>
     </form>
   );
 };

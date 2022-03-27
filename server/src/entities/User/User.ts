@@ -56,6 +56,14 @@ export class User extends BaseEntity {
   @Column({ nullable: false, default: 0, type: "bigint" })
   usedStorage: number;
 
+  @Field(() => String, { nullable: true })
+  @Column({ nullable: true, type: "text" })
+  apiKey: string;
+
+  @Field(() => String, { nullable: true })
+  @Column({ nullable: true, type: "text" })
+  apiSecretKey: string;
+
   @Field(() => String)
   @CreateDateColumn({ type: "datetime", nullable: false })
   createdAt: Date;
