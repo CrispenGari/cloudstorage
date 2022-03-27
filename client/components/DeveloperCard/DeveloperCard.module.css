@@ -1,0 +1,113 @@
+.developer__card {
+  width: 100%;
+  background-color: white;
+  user-select: none;
+  user-zoom: none;
+  max-width: 600px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+
+  border-top: 1px solid lightgray;
+  padding: 10px;
+}
+.developer__card > h1 {
+  font-size: 1rem;
+}
+.developer__card > p {
+  color: red;
+  font-size: 0.8rem;
+}
+.developer__card > p:last-of-type {
+  color: var(--active-color);
+  font-size: 0.8rem;
+  margin: 10px 0;
+}
+.developer__card > p:first-of-type {
+  color: var(--main-color);
+  font-size: 0.8rem;
+}
+
+.developer__card > button {
+  width: 200px;
+  margin: 10px 0;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  padding: 5px;
+  background: transparent;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: all 1s;
+}
+.developer__card > button:hover {
+  color: white;
+  background-image: linear-gradient(to right, var(--main-color), white);
+}
+
+.developer__card > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.developer__card > div > div {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+.developer__card > div > div > p {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.developer__card > div > div > div {
+  display: flex;
+  width: 100%;
+}
+.developer__card > div > div > div > button {
+  width: 50px;
+  outline: none;
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 2px;
+  transition: all 1s;
+}
+.developer__card > div > div > div > button:hover {
+  background-color: var(--hover-color);
+  color: white;
+}
+.developer__card__input {
+  display: flex;
+  width: 100%;
+  margin-right: 5px;
+  border: 1px solid lightgray;
+  align-items: center;
+  padding: 0 10px;
+}
+.developer__card__input__eye {
+  color: gray;
+  cursor: pointer;
+  transition: all 500ms;
+}
+.developer__card__input__eye:hover {
+  color: var(--icon-hover-color);
+}
+.developer__card__input > input {
+  flex: 1;
+  outline: none;
+  border: none;
+}
+.developer__card > div > input {
+  flex: 1;
+  outline: none;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+.developer__card > div > input:last-of-type {
+  margin-left: 10px;
+}

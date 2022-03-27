@@ -15,6 +15,7 @@ import Footer from "../../components/Footer/Footer";
 import { CookieDocument } from "../../src/generated/graphql";
 import { client } from "../../providers/UrqlProvider";
 import StorageCard from "../../components/StorageCard/StorageCard";
+import DeveloperCard from "../../components/DeveloperCard/DeveloperCard";
 interface Props {
   query: any;
 }
@@ -63,6 +64,7 @@ const Settings: NextPage<Props> = () => {
         <LogoutCard />
         <ChangePasswordCard />
         <DeleteAccountCard />
+        <DeveloperCard />
       </div>
       <Footer />
     </div>

@@ -85,7 +85,7 @@ const Login: NextPage<{}> = ({}) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               ref={passwordRef}
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="password"
             />
             {!showPassword ? (

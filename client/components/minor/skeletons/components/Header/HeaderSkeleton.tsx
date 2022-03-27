@@ -20,18 +20,6 @@ const HeaderSkeleton: React.FC<Props> = ({ theme }) => {
       />
       <div className={styles.header__right__skeleton}>
         <div>
-          <Skeleton theme={theme} type="avatar" />
-          <Skeleton theme={theme} type="text-medium" />
-        </div>
-        <div>
-          <Skeleton theme={theme} type="icon" />
-          <Skeleton theme={theme} type="text-medium" />
-        </div>
-        <div>
-          <Skeleton theme={theme} type="icon" />
-          <Skeleton theme={theme} type="text-medium" />
-        </div>
-        <div>
           <Skeleton theme={theme} type="icon" />
           <Skeleton theme={theme} type="text-medium" />
         </div>
