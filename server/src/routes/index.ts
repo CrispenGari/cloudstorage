@@ -9,7 +9,6 @@ const router = Router({
   caseSensitive: true,
 });
 router.get("/developers/api", async (req: Request, res: Response) => {
-  console.log(req.query);
   if (!req.query?.apiKey || !req.query?.apiSecretKey) {
     return res.status(401).json({
       status: 401,
@@ -33,6 +32,7 @@ router.get("/developers/api", async (req: Request, res: Response) => {
     .filter((e) => e[1])
     .map((e) => e[0])
     .filter((e) => availableRelations.indexOf(e as any) !== -1);
+
   const user = await getConnection()
     .getRepository(User)
     .findOne({
@@ -57,7 +57,9 @@ router.get("/developers/api", async (req: Request, res: Response) => {
       help: "Invalid API credentials, make sure your API KEY and API SECRETE is valid.",
     });
   }
-  return res.status(200).json(user);
+  const u = user;
+  u.password = "<hidden_value>";
+  return res.status(200).json(u);
 });
 
 export default router;
